@@ -9,24 +9,38 @@ class HillClimbingAlgorithm:
         pass
 
 
-def hill():
+def generate_first_solution():
+    new_unit = 0
     total_capacity = 0
-    requires = 0
+    total_periods = int(read_files.number_of_periods)
 
     print("=======================")
     print("| Generating solution |")
     print("=======================\n")
 
     period_number = 1
-    requires = int(period[period_number - 1].period_requirement)
-    print("Period number", period_number, "requires", requires)
+    while period_number <= total_periods:
+        requires = int(period[period_number - 1].period_requirement)
+        print("Period number", period_number, "requires", requires)
 
-    while total_capacity <= requires:
-        total_capacity += int(unit[select_random_unit()].unit_capacity)
-        print("|________Total capacity is now:", total_capacity)
+        while total_capacity <= requires:
+            new_unit = select_random_unit()
+            if new_unit is None:
+                break
+            else:
+                total_capacity += int(unit[new_unit].unit_capacity)
+                print("       Total capacity is now:", total_capacity)
+                if total_capacity == requires:
+                    break
 
-
-
+        if new_unit is None:
+            print("Solution Failed!")
+            break
+        period_number += 1
+        total_capacity = 0
+        
+    if new_unit is not None:
+        print("\n($) Solution was Successful!\n")
 
 
 def clear_list():
@@ -43,9 +57,9 @@ def select_random_unit():
             if number in picked_units:
                 number = randint(1, read_files.number_of_units)
             else:
-                print("|__Unit", number, "Picked randomly!")
+                print("    Unit", number, "Picked randomly!")
                 picked_units.append(number)
-                print("|_____Current state of picked units:", picked_units)
+                print("       Current state of picked units:", picked_units)
                 i += 1
                 break
         return number-1
