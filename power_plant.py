@@ -1,10 +1,10 @@
-class powerplant:
+class PowerPlant:
 
-    def _init_(self, code, generatedPower, maintainancePeriod, active):
-        self.code = code
-        self.generatedPower = generatedPower
-        self.maintainancePeriod = maintainancePeriod
-        self.active = active
+    def __init__(self, unit_id, unit_capacity, unit_maintenance_period):
+        self.unit_id = unit_id
+        self.unit_capacity = unit_capacity
+        self.unit_maintenance_period = unit_maintenance_period
+        self.active = True
 
     def activate(self):
         self.active = True
