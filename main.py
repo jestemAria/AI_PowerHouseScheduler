@@ -9,4 +9,4 @@ class Main:
         read_files.read_file_1()
         read_files.read_file_2()
 
-        hillClimbing_algorithm.generate_first_solution()
+        hillClimbing_algorithm.generate_first_solution_work()
