@@ -9,7 +9,7 @@ period = []
 
 
 def read_file_1():
-    file = open("File1.txt", "r")
+    file = open("Input_files/File1.txt", "r")
     global number_of_units, unit
     number_of_units = int(file.readline())
     print("Number of units :", number_of_units)
@@ -28,7 +28,7 @@ def read_file_1():
 
 
 def read_file_2():
-    file = open("File2.txt", "r")
+    file = open("Input_files/File2.txt", "r")
     global number_of_periods, period
     number_of_periods = int(file.readline())
     print("Number of periods :", number_of_periods)
